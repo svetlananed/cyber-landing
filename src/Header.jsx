@@ -53,13 +53,13 @@ function Header() {
 
                   {/* Dropdown */}
 
-                  <div className="absolute left-0 mt-2 hidden w-40 border-cyan-500 border-l-2 shadow-lg group-hover:block">
+                  <div className="absolute left-0 mt-2 w-40 border-cyan-500 border-l-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                     <ul className="flex-col py-2">
                       {link.dropdown.map((item) => (
                         <li key={item.id}>
                           <a
                             href={"`#${item.id}`"}
-                            className="block px-4 py-2 text-sm text-cyan-300 hover:bg-cyan-600 hover:text-white rounded transition"
+                            className="block px-4 py-2 text-sm text-cyan-300 hover:text-white rounded transition"
                           >
                             {item.name}
                           </a>
