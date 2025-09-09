@@ -1,4 +1,5 @@
-import logo from './assets/OSTER_logo-test.jpg';
+import logoText from './assets/LOGO-text.png';
+import logoModule from './assets/LOGO-module.png';
 import { Triangle } from "lucide-react"
 
 const links = [
@@ -23,22 +24,30 @@ const links = [
 
 function Header() {
   return (
-    <header className="bg-black pl-6 pr-10 shadow-lg sticky top-0 z-50 ">
-      <div className="flex justify-between items-center"> 
-
+    <header className="bg-black pl-6 shadow-lg sticky top-0 z-50 ">
+       
           {/* Logo */}
 
-          <div className='flex justify-start '>
-              <img src={logo} alt="Logo" className="h-25 object-contain " />
-            </div>
+          <div className='absolute top-5 left-2.5 z-50'>
+            <img src={logoText} className="h-25 object-contain " />
+          </div>
+          <div className='absolute top-5 left-2.5 z-60'>
+            <img src={logoModule} className="h-25 object-contain hover:rotate-90 transition duration-300" />
+          </div>
+
+          {/* Logo Background */}
+
+          <div className='absolute top-0 left-0 z-40 bg-black h-35 w-125 border-cyan-500 border-b [clip-path:polygon(0_0,100%_0,100%_calc(100%-40px),calc(100%-60px)_100%,0_100%)]' />
+          <div className='bg-gradient-to-r from-fuchsia-600 to-cyan-600 h-5 w-270 rotate-180 absolute top-20 right-0 z-60 [clip-path:polygon(0_0,100%_0,100%_calc(100%-20px),calc(100%-40px)_100%,0_100%)]' />
+          <div className='bg-black h-5 w-full  border-cyan-500 border-b absolute top-20 right-0 z-30'/>
 
           {/* Navigation */}
 
-        <nav className="flex justify-end space-x-15 items-baseline">
+        <nav className="h-20 flex justify-end space-x-15 items-center pr-10 ">
 
           {/* Links */}
           
-          <div className="flex space-x-8 mt-1.5">
+          <div className="flex space-x-8 mt-1.5 ">
             {links.map((link) =>
 
               link.dropdown ? (
@@ -95,7 +104,7 @@ function Header() {
             </button>
 
           </nav>
-        </div>
+        
     </header>
   );
 }
