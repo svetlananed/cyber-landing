@@ -1,41 +1,74 @@
-import Hero from "./Hero";
-import Who from "./Who";
-import What from "./What";
-import Why from "./Why";
-import How from "./How";
-import decor1 from '../decor1-bg.png';
-import decor1black from '../decor1black-bg.png';
-import bgPurpleDot from '../bg-purple-dot.png';
-import bg1 from '../bg1.png';
-import bg2 from '../bg2.png';
-
+import { useEffect, useState } from "react";
+import RotatingText from "../Components/RotatingText";
+import bg2 from '../bg2-1.png';
+import decor1 from '../1.png';
 
 function About() {
+    const words = ["Web", "Application", "Software"];
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex((prev) => (prev + 1) % words.length);
+        }, 2000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
+
         <>
-        {/*<img src={bgPurpleDot} className="-z10 h-200 absolute top-0 right-0 block dark:hidden opacity-60" />*/}
-        <img src={bg1} className="-z10 h-200 w-full absolute top-0 right-0 block dark:hidden opacity-80" />
-            <div className="block mt-50">
-                <div className="relative">
-                    <img src={decor1} className=" hidden dark:block h-150 absolute top-0 right-5" />
-                    <img src={decor1black} className=" dark:hidden h-150 absolute top-0 right-5" />
-                    
-                    
-                    <div className="absolute top-120 right-10 m-6 text-right"><Hero /></div>
-                    <div><Who /></div>
-                    <div><What /></div>
-                    <div><Why /></div>
-                    <div><How /></div>
-                    <div>
-                        <div>Client Outcomes</div>
-                        <div>Our partners—whether startups or enterprises—gain more than code. They gain digital foundations designed to last. From secure backend infrastructures to intuitive front-end experiences, we deliver technology that grows with your business.
+        <img src={decor1} className="block absolute top-50 w-full transform   " />
+            <div className="flex justify-center">
+                
+                <div className="flex flex-col w-[1480px] h-[730px] justify-around">
+
+                    <div className="uppercase leading-tight">
+                        <div className="text-5xl md:text-7xl  bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 
+                     bg-clip-text text-transparent font-medium [text-shadow:_-4px_-4px_0_black] dark:[text-shadow:none]">
+                            Building experience
+                        </div>
+                        <div className="text-4xl  md:text-5xl">
+                            not just IT product
                         </div>
                     </div>
-                    <div>
-                        <div>Call-to-Action</div>
-                        <div>Ready to Build What’s Next?</div>
-                        <button>Let’s Talk</button>
+                    <div className="flex flex-col h-[250px] justify-between">
+                        
+                        <div className="flex items-center gap-2 uppercase font-medium text-2xl md:text-2xl">
+                            <div>
+                                From idea to launch:
+                            </div>
+                            <div className="w-100"> 
+                                <RotatingText
+                                texts={['Landing', 'Website visuals', 'Website maintenance']}
+                                mainClassName="px-2 mt-1 sm:px-2 md:px-3 text-fuchsia-600 overflow-hidden py-0.5 sm:py-1 md:py-2  rounded-lg"
+                                staggerFrom={"last"}
+                                initial={{ y: "100%" }}
+                                animate={{ y: 0 }}
+                                exit={{ y: "-120%" }}
+                                staggerDuration={0.025}
+                                splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                                transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                                rotationInterval={3000}
+                                />
+                            </div>
+                            
+                        </div>
+                        <div className="text-lg md:text-xl">
+                            <div>
+                                // crafting reliable and elegant technology
+                            </div>
+                            <div>
+                                // to unlock the tomorrow’s opportunities
+                            </div>                     
+                        </div>
+                        <a
+                            href="#contact"
+                            className="p-4 w-max bg-black text-white rounded-2xl border:none dark:border-r dark:border-t dark:border-fuchsia-600"
+                            >
+                            Ready to scale? Let’s talk
+                        </a>
                     </div>
+
                 </div>
             </div>
         </>

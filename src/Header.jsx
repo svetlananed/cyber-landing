@@ -318,9 +318,6 @@ function Header({ theme, toggleTheme }) {
       </div>
 
       </>
-
-          
-
   );
 }
 
