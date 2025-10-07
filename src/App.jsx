@@ -32,10 +32,10 @@ function App() {
     <>
   
     <div 
-      className="w-full bg-repeat-y bg-left relative font-oxanium  text-black dark:text-white  dark:bg-black"
-      style={{ 
+      className="relative min-h-screen font-oxanium  text-black dark:text-white  dark:bg-black">
+      {/*style={{ 
         backgroundImage: !document.documentElement.classList.contains('dark') ? `url(${bg1})` : 'none',
-        backgroundSize: "100% auto",}} >
+        backgroundSize: "100% auto",}} */}
 
           
       
@@ -43,17 +43,17 @@ function App() {
 
       {/* Content */}
 
-      <section id="about" className="mt-20">
+      <section id="about" className="">
         <About />
 
       </section>
 
-      <img src={lineblack} className='w-full'/>
+      {/*<img src={lineblack} className='w-full'/>
 
       <section id="about" className="">
         
 
-      </section>
+      </section> */}
 
 {/*
       <section id="services" className="h-screene flex items-center justify-center">
